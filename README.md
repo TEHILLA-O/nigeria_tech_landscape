@@ -60,6 +60,20 @@ Directory: regulator tagged for CBN (277), FCCPC (562), YC (37), Press (63), Oth
 | 9 | Lumos Global | $125,000,000 |
 | 10 | TradeDepot | $123,000,000 |
 
+## Deep dive (2026-10-19)
+
+A sourced research layer on how the Nigerian fintech and tech market actually works. Every figure has a dated citation in [`docs/deep_dive/SOURCES.md`](docs/deep_dive/SOURCES.md) (177 sources, accessed 2026-10-19). Unknowns stay blank and are listed at the end of each file.
+
+| File | What it covers |
+|---|---|
+| [Value chain](docs/deep_dive/value_chain.md) | How money and data move from the CBN and NIBSS through banks, switches, gateways, wallets, agents, identity rails and telcos to the real economy. NIBSS processed ₦1.07 quadrillion in 2024. Includes a dependency graph and a ranked list of chokepoints. |
+| [Players and competition](docs/deep_dive/players_competition.md) | Segment by segment: who leads, with users, volumes, revenue and profit where disclosed. OPay's 2026 F-1 shows lending now earns more than payments. Covers the transfer and POS price wars, 2024 to 2026 M&A (Brass, Mono, Ladder MFB) and banks vs fintechs. |
+| [Regulation](docs/deep_dive/regulation.md) | Regulator map, licence capital in naira with dates, and the key rules from 2021 to 2026: bank recapitalisation (33 of 37 banks met it), the 2024 onboarding pause, levies and stamp duty, FX unification, the crypto ban and reversal, NDPA and FCCPC enforcement, agent geofencing. Timeline table included. |
+| [Money flows](docs/deep_dive/money_flows.md) | Where money is actually made: a ranked table of revenue pools, take rates (NIP fees, MSC, gateway pricing, cash-out fees), unit economics we could calculate, and who is profitable. Banks' net interest income is still the biggest pool by far. |
+| [Losses and leaks](docs/deep_dive/losses_and_leaks.md) | The top 10 holes in the wallet, ranked by size where data allows: FX devaluation, credit losses, power, failed startups, fines, USSD debt, fraud, processor losses, the mobility collapse and POS capex. Each with possible fixes. |
+
+Structured data behind the deep dive: [`data/revenue_pools.csv`](data/revenue_pools.csv), [`data/losses.csv`](data/losses.csv), [`data/regulatory_timeline.csv`](data/regulatory_timeline.csv), [`data/value_chain_edges.csv`](data/value_chain_edges.csv). The edges render as a graph in [`docs/dashboard/value_chain.html`](docs/dashboard/value_chain.html).
+
 ## Example: how to read a row (Moniepoint)
 
 Take **Moniepoint (TeamApt)** in `Ranked_Disclosed`:
@@ -90,6 +104,12 @@ docs/data_dictionary.md
 docs/sector_playbooks.md
 docs/licences.md
 docs/dashboard/index.html (filters + CSV export)
+docs/dashboard/value_chain.html
+docs/deep_dive/ (value_chain, players_competition, regulation, money_flows, losses_and_leaks, SOURCES)
+data/revenue_pools.csv
+data/losses.csv
+data/regulatory_timeline.csv
+data/value_chain_edges.csv
 data/nigeria_tech_landscape.sqlite
 CHANGELOG.md
 sources.md
@@ -128,6 +148,7 @@ Full detail: [`docs/methodology.md`](docs/methodology.md).
 | [Sector playbooks](docs/sector_playbooks.md) | Payments, lending, banking, SaaS, logistics, health, edtech, energy, HR |
 | [Licences](docs/licences.md) | High-level Nigeria licence paths (not legal advice) |
 | [Funding caveats](docs/Funding_Caveats.md) | Disputed totals (Moove and others) |
+| [Deep dive](docs/deep_dive/value_chain.md) | Value chain, players, regulation, money flows, losses (see section above) |
 | [Sources](sources.md) | Bibliography |
 | [Contributing](CONTRIBUTING.md) | How to add a company honestly |
 
@@ -138,6 +159,8 @@ python3 -m venv .venv && .venv/bin/pip install openpyxl pandas
 # optional: refresh raw_sources from CBN/FCCPC/etc.
 .venv/bin/python scripts/enrich_and_rebuild.py
 ```
+
+Deep dive files: `python3 scripts/build_deep_dive_refs.py` (citations and SOURCES.md), `python3 scripts/build_deep_dive_data.py` (CSVs), `python3 scripts/build_value_chain_page.py` (graph page).
 
 See [`scripts/README.md`](scripts/README.md).
 

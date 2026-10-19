@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-10-19 | Deep dive research layer
+
+### Added
+- `docs/deep_dive/value_chain.md`: end-to-end map of rails, banks, switches, schemes, gateways, wallets, agents, identity, credit, telcos, remittance, crypto and real-economy sectors, with a mermaid dependency graph and ranked chokepoints.
+- `docs/deep_dive/players_competition.md`: major players by segment with dated metrics, moats, price wars, 2024 to 2026 M&A, banks vs fintechs, winners and losers.
+- `docs/deep_dive/regulation.md`: regulator map, licence capital table in naira, key rules 2021 to 2026, compliance burden, timeline.
+- `docs/deep_dive/money_flows.md`: ranked revenue pools, take rates, calculated unit economics, profitability table.
+- `docs/deep_dive/losses_and_leaks.md`: top 10 losses ranked by size, failed startups and why, fines, fraud, breaches, and possible fixes.
+- `docs/deep_dive/SOURCES.md`: 177 sources with publish and access dates.
+- `data/revenue_pools.csv`, `data/losses.csv`, `data/regulatory_timeline.csv`, `data/value_chain_edges.csv`.
+- `docs/dashboard/value_chain.html`: graph and edge table generated from `value_chain_edges.csv`; linked from the main dashboard.
+- `scripts/deep_dive_sources.py`, `scripts/build_deep_dive_refs.py`, `scripts/build_deep_dive_data.py`, `scripts/build_value_chain_page.py`.
+
+### Notes
+- Every figure is cited and dated. Our own arithmetic is labelled "our calc"; estimates are labelled. Unknowns stay blank and are listed in each file.
+- No changes to ranked or directory data.
+
 ## 2026-09-26 | Remove Omnific Hand ROI / shortlist layer
 
 ### Removed
