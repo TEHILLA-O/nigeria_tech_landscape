@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Nigeria tech landscape: value chain graph</title>
+<style>
+body { margin:0; font-family: ui-sans-serif, system-ui, sans-serif; background:#0b1220; color:#e8eefc; }
+header, main, footer { padding:16px 24px; }
+p { color:#9aa8c7; max-width:75ch; line-height:1.45; }
+a { color:#93c5fd; }
+.graph { background:#fff; border-radius:10px; padding:12px; overflow:auto; }
+table { width:100%; border-collapse:collapse; font-size:.9rem; margin-top:16px; }
+th, td { text-align:left; padding:8px; border-bottom:1px solid #243049; }
+th { color:#9aa8c7; }
+</style></head><body>
+<header><h1>Value chain: who depends on whom</h1>
+<p>Generated from <code>data/value_chain_edges.csv</code> (39 edges). Each edge links to the sources behind it. Read the full analysis in <a href="../deep_dive/value_chain.md">docs/deep_dive/value_chain.md</a>. Back to the <a href="index.html">ranked dashboard</a>.</p></header>
+<main><div class="graph"><pre class="mermaid">
+graph LR
+  n0[&quot;CBN&quot;] --&gt;|supervises and co owns  NIP settles on C| n1[&quot;NIBSS&quot;]
+  n0[&quot;CBN&quot;] --&gt;|licenses and sets capital| n2[&quot;Deposit money banks&quot;]
+  n0[&quot;CBN&quot;] --&gt;|licenses MMO and MFB  national upgrades| n3[&quot;Wallets and digital MFBs&quot;]
+  n0[&quot;CBN&quot;] --&gt;|licenses switching and processing| n4[&quot;Switches and processors&quot;]
+  n0[&quot;CBN&quot;] --&gt;|licenses PSBs| n5[&quot;Payment service banks&quot;]
+  n0[&quot;CBN&quot;] --&gt;|licenses IMTOs  naira only payout| n6[&quot;IMTOs and remittance firms&quot;]
+  n0[&quot;CBN&quot;] --&gt;|agent banking caps and geofencing| n7[&quot;Agents and POS&quot;]
+  n1[&quot;NIBSS&quot;] --&gt;|NIP clearing, deferred net settlement| n2[&quot;Deposit money banks&quot;]
+  n1[&quot;NIBSS&quot;] --&gt;|NIP access for transfers| n3[&quot;Wallets and digital MFBs&quot;]
+  n1[&quot;NIBSS&quot;] --&gt;|BVN verification| n8[&quot;KYC vendors&quot;]
+  n9[&quot;NIMC&quot;] --&gt;|NIN verification| n8[&quot;KYC vendors&quot;]
+  n8[&quot;KYC vendors&quot;] --&gt;|onboarding checks| n3[&quot;Wallets and digital MFBs&quot;]
+  n8[&quot;KYC vendors&quot;] --&gt;|onboarding checks| n10[&quot;Lenders and BNPL&quot;]
+  n2[&quot;Deposit money banks&quot;] --&gt;|sponsor bank and settlement accounts| n11[&quot;Payment gateways&quot;]
+  n2[&quot;Deposit money banks&quot;] --&gt;|card issuing| n12[&quot;Card schemes&quot;]
+  n12[&quot;Card schemes&quot;] --&gt;|authorisation and switching| n4[&quot;Switches and processors&quot;]
+  n4[&quot;Switches and processors&quot;] --&gt;|processing| n11[&quot;Payment gateways&quot;]
+  n11[&quot;Payment gateways&quot;] --&gt;|online checkout, transfers, terminals| n13[&quot;Merchants and real economy&quot;]
+  n3[&quot;Wallets and digital MFBs&quot;] --&gt;|terminals, float, settlement| n7[&quot;Agents and POS&quot;]
+  n7[&quot;Agents and POS&quot;] --&gt;|cash in and cash out for a fee| n13[&quot;Merchants and real economy&quot;]
+  n3[&quot;Wallets and digital MFBs&quot;] --&gt;|credit funded from own MFB balance sheet| n10[&quot;Lenders and BNPL&quot;]
+  n14[&quot;Credit bureaus&quot;] --&gt;|credit reports| n10[&quot;Lenders and BNPL&quot;]
+  n15[&quot;FCCPC&quot;] --&gt;|registers consumer lending apps| n10[&quot;Lenders and BNPL&quot;]
+  n16[&quot;NCC&quot;] --&gt;|licenses and sets USSD pricing| n17[&quot;Telcos&quot;]
+  n17[&quot;Telcos&quot;] --&gt;|USSD and SMS channels| n2[&quot;Deposit money banks&quot;]
+  n17[&quot;Telcos&quot;] --&gt;|USSD and SMS channels| n3[&quot;Wallets and digital MFBs&quot;]
+  n17[&quot;Telcos&quot;] --&gt;|parent companies of PSBs| n5[&quot;Payment service banks&quot;]
+  n6[&quot;IMTOs and remittance firms&quot;] --&gt;|naira payout| n2[&quot;Deposit money banks&quot;]
+  n6[&quot;IMTOs and remittance firms&quot;] --&gt;|naira payout| n3[&quot;Wallets and digital MFBs&quot;]
+  n18[&quot;SEC Nigeria&quot;] --&gt;|regulates under ISA 2025  ARIP  capital| n19[&quot;Crypto VASPs&quot;]
+  n18[&quot;SEC Nigeria&quot;] --&gt;|regulates fund managers| n20[&quot;Savings and wealth apps&quot;]
+  n19[&quot;Crypto VASPs&quot;] --&gt;|designated settlement accounts| n2[&quot;Deposit money banks&quot;]
+  n20[&quot;Savings and wealth apps&quot;] --&gt;|customer funds held and invested| n2[&quot;Deposit money banks&quot;]
+  n21[&quot;NAICOM&quot;] --&gt;|licenses and sets capital| n22[&quot;Insurers and insurtech&quot;]
+  n23[&quot;NDPC&quot;] --&gt;|data protection enforcement| n3[&quot;Wallets and digital MFBs&quot;]
+  n13[&quot;Merchants and real economy&quot;] --&gt;|borrow working capital| n10[&quot;Lenders and BNPL&quot;]
+  n4[&quot;Switches and processors&quot;] --&gt;|e invoicing access point| n24[&quot;FIRS&quot;]
+  n25[&quot;Ride-hailing platforms&quot;] --&gt;|driver earnings fund vehicle repayments| n26[&quot;Mobility finance&quot;]
+  n3[&quot;Wallets and digital MFBs&quot;] --&gt;|mobile money repayments| n27[&quot;PAYG solar&quot;]
+</pre></div>
+<table><thead><tr><th>Source</th><th>Target</th><th>Relationship</th><th>Layer</th><th>Sources</th></tr></thead>
+<tbody>
+<tr><td>CBN</td><td>NIBSS</td><td>supervises and co-owns; NIP settles on CBN RTGS</td><td>rails</td><td><a href="https://africanenda.org/wp-content/uploads/siips_2025_NIP-Nigeria_CaseStudy_en.pdf">src</a> <a href="https://www.cbn.gov.ng/PaymentsSystem/LargeValuePayments.html">src</a></td></tr>
+<tr><td>CBN</td><td>Deposit money banks</td><td>licenses and sets capital</td><td>regulation</td><td><a href="https://www.cbn.gov.ng/Out/2024/CCD/Recapitalization_MARCH_2024.pdf">src</a></td></tr>
+<tr><td>CBN</td><td>Wallets and digital MFBs</td><td>licenses MMO and MFB; national upgrades 2026</td><td>regulation</td><td><a href="https://guardian.ng/business-services/money/cbn-upgrades-licences-of-major-fintechs-mfbs-to-national-status/">src</a></td></tr>
+<tr><td>CBN</td><td>Switches and processors</td><td>licenses switching and processing</td><td>regulation</td><td><a href="https://www.cbn.gov.ng/Out/2021/CCD/Approved%20New%20Licence%20Categorization%20Requirements%20Consolidated%20-%202021.pdf">src</a></td></tr>
+<tr><td>CBN</td><td>Payment service banks</td><td>licenses PSBs</td><td>regulation</td><td><a href="https://www.cbn.gov.ng/Out/2020/CCD/APPROVED%20REVIEWED%20GUIDELINES%20FOR%20LICENSING%20AND%20REGULATION%20OF%20PAYMENT%20SERVICE%20BANKS%20IN%20NIGERIA-27AUG2020.pdf">src</a></td></tr>
+<tr><td>CBN</td><td>IMTOs and remittance firms</td><td>licenses IMTOs; naira-only payout</td><td>regulation</td><td><a href="https://www.mondaq.com/nigeria/fin-tech/1423338/revised-cbn-guidelines-on-international-money-transfer-services-in-nigeria">src</a> <a href="https://nairametrics.com/2024/02/04/cbn-stops-outbound-international-money-transfer-transactions-limits-inflow-payouts-to-naira/">src</a></td></tr>
+<tr><td>CBN</td><td>Agents and POS</td><td>agent banking caps and geofencing</td><td>regulation</td><td><a href="https://businessday.ng/business-economy/article/cbn-limits-daily-cash-withdrawals-via-agent-banking-to-n100000/">src</a> <a href="https://punchng.com/cbn-caps-pos-agent-daily-transactions-at-n1-2m-in-new-guidelines/">src</a></td></tr>
+<tr><td>NIBSS</td><td>Deposit money banks</td><td>NIP clearing, deferred net settlement</td><td>rails</td><td><a href="https://africanenda.org/wp-content/uploads/siips_2025_NIP-Nigeria_CaseStudy_en.pdf">src</a></td></tr>
+<tr><td>NIBSS</td><td>Wallets and digital MFBs</td><td>NIP access for transfers</td><td>rails</td><td><a href="https://nairametrics.com/2025/01/29/e-payment-transactions-in-nigeria-hit-all-time-high-of-n1-07-quadrillion-in-2024/">src</a> <a href="https://nairametrics.com/2025/02/02/mobile-money-palmpay-opay-others-process-n71-5-trillion-transactions-in-2024/">src</a></td></tr>
+<tr><td>NIBSS</td><td>KYC vendors</td><td>BVN verification</td><td>identity</td><td><a href="https://nairametrics.com/2026/01/08/bvn-enrolments-hit-67-8-million-in-2025-buoyed-by-cbn-initiaves/">src</a></td></tr>
+<tr><td>NIMC</td><td>KYC vendors</td><td>NIN verification</td><td>identity</td><td><a href="https://thenationonlineng.net/nin-database-hits-127-million-enrolments-nationwide-says-nimc/">src</a> <a href="https://nimc.gov.ng/nimc-verification-service">src</a></td></tr>
+<tr><td>KYC vendors</td><td>Wallets and digital MFBs</td><td>onboarding checks</td><td>identity</td><td><a href="https://dojah.io/blog/top-identity-verification-solutions-in-2024">src</a></td></tr>
+<tr><td>KYC vendors</td><td>Lenders and BNPL</td><td>onboarding checks</td><td>identity</td><td><a href="https://dojah.io/blog/top-identity-verification-solutions-in-2024">src</a></td></tr>
+<tr><td>Deposit money banks</td><td>Payment gateways</td><td>sponsor bank and settlement accounts</td><td>payments</td><td><a href="https://paystack.com/pricing">src</a></td></tr>
+<tr><td>Deposit money banks</td><td>Card schemes</td><td>card issuing</td><td>payments</td><td><a href="https://interswitchgroup.com/news/verve-hits-100-million-cards-issued-reinforcing-leadership-in-africas-card/">src</a></td></tr>
+<tr><td>Card schemes</td><td>Switches and processors</td><td>authorisation and switching</td><td>payments</td><td><a href="https://moneycentral.com.ng/exclusive/article/interswitch-navigates-fx-headwinds-moves-to-n14-7-billion-profit-after-prior-year-loss/">src</a></td></tr>
+<tr><td>Switches and processors</td><td>Payment gateways</td><td>processing</td><td>payments</td><td><a href="https://moneycentral.com.ng/exclusive/article/interswitch-navigates-fx-headwinds-moves-to-n14-7-billion-profit-after-prior-year-loss/">src</a></td></tr>
+<tr><td>Payment gateways</td><td>Merchants and real economy</td><td>online checkout, transfers, terminals</td><td>payments</td><td><a href="https://paystack.com/pricing">src</a></td></tr>
+<tr><td>Wallets and digital MFBs</td><td>Agents and POS</td><td>terminals, float, settlement</td><td>distribution</td><td><a href="https://nairametrics.com/2025/09/30/pos-terminals-cost-jumps-30-100-in-nigeria-over-two-years/">src</a> <a href="https://techpoint.africa/news/moniepoint-2025-report/">src</a></td></tr>
+<tr><td>Agents and POS</td><td>Merchants and real economy</td><td>cash in and cash out for a fee</td><td>distribution</td><td><a href="https://techpoint.africa/insight/pos-withdrawal-charges-rise-as-agents-lament-cash-scarcity-and-rising-costs/">src</a></td></tr>
+<tr><td>Wallets and digital MFBs</td><td>Lenders and BNPL</td><td>credit funded from own MFB balance sheet</td><td>credit</td><td><a href="https://nairametrics.com/2026/10/13/opay-earns-more-from-lending-than-payments-as-profit-hits-90-9-million/">src</a> <a href="https://techpoint.africa/news/moniepoint-2025-report/">src</a></td></tr>
+<tr><td>Credit bureaus</td><td>Lenders and BNPL</td><td>credit reports</td><td>credit</td><td><a href="https://cban.ng/faq/">src</a></td></tr>
+<tr><td>FCCPC</td><td>Lenders and BNPL</td><td>registers consumer lending apps</td><td>regulation</td><td><a href="https://fccpc.gov.ng/wp-content/uploads/2025/11/Digital-Electronic-Online-or-Non-Traditional-Consumer-Lending-Regulations-2025.pdf">src</a></td></tr>
+<tr><td>NCC</td><td>Telcos</td><td>licenses and sets USSD pricing</td><td>regulation</td><td><a href="https://ncc.gov.ng/sites/default/files/2025-04/USSD-DETERMINATION-2025.pdf">src</a></td></tr>
+<tr><td>Telcos</td><td>Deposit money banks</td><td>USSD and SMS channels</td><td>channels</td><td><a href="https://punchng.com/cbn-ncc-order-banks-telcos-to-settle-n250bn-ussd-debt-dispute/">src</a> <a href="https://nairametrics.com/2025/06/19/banks-clear-95-of-n180-billion-ussd-debt-3-lenders-still-owing-alton/">src</a></td></tr>
+<tr><td>Telcos</td><td>Wallets and digital MFBs</td><td>USSD and SMS channels</td><td>channels</td><td><a href="https://ncc.gov.ng/sites/default/files/2025-04/USSD-DETERMINATION-2025.pdf">src</a></td></tr>
+<tr><td>Telcos</td><td>Payment service banks</td><td>parent companies of PSBs</td><td>channels</td><td><a href="https://www.tekedia.com/momo-psb-hits-2-7-million-wallets-as-growth-and-strategy-rebound-in-h1-2025/">src</a></td></tr>
+<tr><td>IMTOs and remittance firms</td><td>Deposit money banks</td><td>naira payout</td><td>cross-border</td><td><a href="https://nairametrics.com/2024/02/04/cbn-stops-outbound-international-money-transfer-transactions-limits-inflow-payouts-to-naira/">src</a></td></tr>
+<tr><td>IMTOs and remittance firms</td><td>Wallets and digital MFBs</td><td>naira payout</td><td>cross-border</td><td><a href="https://nairametrics.com/2025/10/08/moniepoint-clarifies-uk-units-2024-loss-spends-2-5-million-on-bancom-acquisition/">src</a> <a href="https://www.highlandeurope.com/lemfi-has-secured-53m-in-series-b-funding-led-by-highland-europe/">src</a></td></tr>
+<tr><td>SEC Nigeria</td><td>Crypto VASPs</td><td>regulates under ISA 2025; ARIP; capital rules</td><td>regulation</td><td><a href="https://www.sec.gov.ng/documents/1319/Investments_and_Securities_Act_2025_x9rSXtI.pdf">src</a> <a href="https://www.sec.gov.ng/about/resources/checklists/accelerated-regulatory-incubation-program-arip-checklist-for-vasp-onboarding/">src</a> <a href="https://www.sec.gov.ng/for-investors/keep-track-of-circulars/revised-minimum-capital-mc-for-regulated-capital-market-entities/">src</a></td></tr>
+<tr><td>SEC Nigeria</td><td>Savings and wealth apps</td><td>regulates fund managers</td><td>regulation</td><td><a href="https://www.sec.gov.ng/for-investors/keep-track-of-circulars/revised-minimum-capital-mc-for-regulated-capital-market-entities/">src</a></td></tr>
+<tr><td>Crypto VASPs</td><td>Deposit money banks</td><td>designated settlement accounts</td><td>crypto</td><td><a href="https://www.reuters.com/world/africa/nigerian-central-bank-lifts-ban-crypto-trading-2023-12-23/">src</a> <a href="https://www.mondaq.com/nigeria/fin-tech/1414818/the-regime-for-the-operation-of-bank-accounts-by-virtual-asset-service-providersexchanges-in-nigeria">src</a></td></tr>
+<tr><td>Savings and wealth apps</td><td>Deposit money banks</td><td>customer funds held and invested</td><td>savings</td><td><a href="https://techpoint.africa/news/piggyvest-2025-payouts/">src</a></td></tr>
+<tr><td>NAICOM</td><td>Insurers and insurtech</td><td>licenses and sets capital</td><td>regulation</td><td><a href="https://naicom.gov.ng/wp-content/uploads/2025/08/NIIRA-2025.pdf">src</a></td></tr>
+<tr><td>NDPC</td><td>Wallets and digital MFBs</td><td>data protection enforcement</td><td>regulation</td><td><a href="https://assets.kpmg.com/content/dam/kpmgsites/ng/pdf/nigeria-data-protection-act2023.pdf.coredownload.pdf">src</a></td></tr>
+<tr><td>Merchants and real economy</td><td>Lenders and BNPL</td><td>borrow working capital</td><td>credit</td><td><a href="https://techpoint.africa/news/moniepoint-2025-report/">src</a></td></tr>
+<tr><td>Switches and processors</td><td>FIRS</td><td>e-invoicing access point</td><td>government</td><td><a href="https://interswitchgroup.com/news/interswitch-named-firs-access-point-provider-for-mandatory-e-invoicing/">src</a></td></tr>
+<tr><td>Ride-hailing platforms</td><td>Mobility finance</td><td>driver earnings fund vehicle repayments</td><td>real economy</td><td><a href="https://punchng.com/moove-exits-nigeria-transfers-n35bn-vehicles-to-customers/">src</a> <a href="https://www.bbc.com/news/articles/c86xpv8l9y9o">src</a></td></tr>
+<tr><td>Wallets and digital MFBs</td><td>PAYG solar</td><td>mobile money repayments</td><td>real economy</td><td><a href="https://www.ifc.org/en/pressroom/2025/sun-king-ifc-and-stanbic-ibtc-bank-close-80-million-debt-facility-to-expand-solar-">src</a></td></tr>
+</tbody></table></main>
+<footer>Built by scripts/build_value_chain_page.py. Blanks over guesses.</footer>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+mermaid.initialize({ startOnLoad: true });
+</script>
+</body></html>

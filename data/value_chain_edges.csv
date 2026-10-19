@@ -1,0 +1,40 @@
+Source,Target,Relationship,Layer,Source_URLs
+CBN,NIBSS,supervises and co-owns; NIP settles on CBN RTGS,rails,https://africanenda.org/wp-content/uploads/siips_2025_NIP-Nigeria_CaseStudy_en.pdf ; https://www.cbn.gov.ng/PaymentsSystem/LargeValuePayments.html
+CBN,Deposit money banks,licenses and sets capital,regulation,https://www.cbn.gov.ng/Out/2024/CCD/Recapitalization_MARCH_2024.pdf
+CBN,Wallets and digital MFBs,licenses MMO and MFB; national upgrades 2026,regulation,https://guardian.ng/business-services/money/cbn-upgrades-licences-of-major-fintechs-mfbs-to-national-status/
+CBN,Switches and processors,licenses switching and processing,regulation,https://www.cbn.gov.ng/Out/2021/CCD/Approved%20New%20Licence%20Categorization%20Requirements%20Consolidated%20-%202021.pdf
+CBN,Payment service banks,licenses PSBs,regulation,https://www.cbn.gov.ng/Out/2020/CCD/APPROVED%20REVIEWED%20GUIDELINES%20FOR%20LICENSING%20AND%20REGULATION%20OF%20PAYMENT%20SERVICE%20BANKS%20IN%20NIGERIA-27AUG2020.pdf
+CBN,IMTOs and remittance firms,licenses IMTOs; naira-only payout,regulation,https://www.mondaq.com/nigeria/fin-tech/1423338/revised-cbn-guidelines-on-international-money-transfer-services-in-nigeria ; https://nairametrics.com/2024/02/04/cbn-stops-outbound-international-money-transfer-transactions-limits-inflow-payouts-to-naira/
+CBN,Agents and POS,agent banking caps and geofencing,regulation,https://businessday.ng/business-economy/article/cbn-limits-daily-cash-withdrawals-via-agent-banking-to-n100000/ ; https://punchng.com/cbn-caps-pos-agent-daily-transactions-at-n1-2m-in-new-guidelines/
+NIBSS,Deposit money banks,"NIP clearing, deferred net settlement",rails,https://africanenda.org/wp-content/uploads/siips_2025_NIP-Nigeria_CaseStudy_en.pdf
+NIBSS,Wallets and digital MFBs,NIP access for transfers,rails,https://nairametrics.com/2025/01/29/e-payment-transactions-in-nigeria-hit-all-time-high-of-n1-07-quadrillion-in-2024/ ; https://nairametrics.com/2025/02/02/mobile-money-palmpay-opay-others-process-n71-5-trillion-transactions-in-2024/
+NIBSS,KYC vendors,BVN verification,identity,https://nairametrics.com/2026/01/08/bvn-enrolments-hit-67-8-million-in-2025-buoyed-by-cbn-initiaves/
+NIMC,KYC vendors,NIN verification,identity,https://thenationonlineng.net/nin-database-hits-127-million-enrolments-nationwide-says-nimc/ ; https://nimc.gov.ng/nimc-verification-service
+KYC vendors,Wallets and digital MFBs,onboarding checks,identity,https://dojah.io/blog/top-identity-verification-solutions-in-2024
+KYC vendors,Lenders and BNPL,onboarding checks,identity,https://dojah.io/blog/top-identity-verification-solutions-in-2024
+Deposit money banks,Payment gateways,sponsor bank and settlement accounts,payments,https://paystack.com/pricing
+Deposit money banks,Card schemes,card issuing,payments,https://interswitchgroup.com/news/verve-hits-100-million-cards-issued-reinforcing-leadership-in-africas-card/
+Card schemes,Switches and processors,authorisation and switching,payments,https://moneycentral.com.ng/exclusive/article/interswitch-navigates-fx-headwinds-moves-to-n14-7-billion-profit-after-prior-year-loss/
+Switches and processors,Payment gateways,processing,payments,https://moneycentral.com.ng/exclusive/article/interswitch-navigates-fx-headwinds-moves-to-n14-7-billion-profit-after-prior-year-loss/
+Payment gateways,Merchants and real economy,"online checkout, transfers, terminals",payments,https://paystack.com/pricing
+Wallets and digital MFBs,Agents and POS,"terminals, float, settlement",distribution,https://nairametrics.com/2025/09/30/pos-terminals-cost-jumps-30-100-in-nigeria-over-two-years/ ; https://techpoint.africa/news/moniepoint-2025-report/
+Agents and POS,Merchants and real economy,cash in and cash out for a fee,distribution,https://techpoint.africa/insight/pos-withdrawal-charges-rise-as-agents-lament-cash-scarcity-and-rising-costs/
+Wallets and digital MFBs,Lenders and BNPL,credit funded from own MFB balance sheet,credit,https://nairametrics.com/2026/10/13/opay-earns-more-from-lending-than-payments-as-profit-hits-90-9-million/ ; https://techpoint.africa/news/moniepoint-2025-report/
+Credit bureaus,Lenders and BNPL,credit reports,credit,https://cban.ng/faq/
+FCCPC,Lenders and BNPL,registers consumer lending apps,regulation,https://fccpc.gov.ng/wp-content/uploads/2025/11/Digital-Electronic-Online-or-Non-Traditional-Consumer-Lending-Regulations-2025.pdf
+NCC,Telcos,licenses and sets USSD pricing,regulation,https://ncc.gov.ng/sites/default/files/2025-04/USSD-DETERMINATION-2025.pdf
+Telcos,Deposit money banks,USSD and SMS channels,channels,https://punchng.com/cbn-ncc-order-banks-telcos-to-settle-n250bn-ussd-debt-dispute/ ; https://nairametrics.com/2025/06/19/banks-clear-95-of-n180-billion-ussd-debt-3-lenders-still-owing-alton/
+Telcos,Wallets and digital MFBs,USSD and SMS channels,channels,https://ncc.gov.ng/sites/default/files/2025-04/USSD-DETERMINATION-2025.pdf
+Telcos,Payment service banks,parent companies of PSBs,channels,https://www.tekedia.com/momo-psb-hits-2-7-million-wallets-as-growth-and-strategy-rebound-in-h1-2025/
+IMTOs and remittance firms,Deposit money banks,naira payout,cross-border,https://nairametrics.com/2024/02/04/cbn-stops-outbound-international-money-transfer-transactions-limits-inflow-payouts-to-naira/
+IMTOs and remittance firms,Wallets and digital MFBs,naira payout,cross-border,https://nairametrics.com/2025/10/08/moniepoint-clarifies-uk-units-2024-loss-spends-2-5-million-on-bancom-acquisition/ ; https://www.highlandeurope.com/lemfi-has-secured-53m-in-series-b-funding-led-by-highland-europe/
+SEC Nigeria,Crypto VASPs,regulates under ISA 2025; ARIP; capital rules,regulation,https://www.sec.gov.ng/documents/1319/Investments_and_Securities_Act_2025_x9rSXtI.pdf ; https://www.sec.gov.ng/about/resources/checklists/accelerated-regulatory-incubation-program-arip-checklist-for-vasp-onboarding/ ; https://www.sec.gov.ng/for-investors/keep-track-of-circulars/revised-minimum-capital-mc-for-regulated-capital-market-entities/
+SEC Nigeria,Savings and wealth apps,regulates fund managers,regulation,https://www.sec.gov.ng/for-investors/keep-track-of-circulars/revised-minimum-capital-mc-for-regulated-capital-market-entities/
+Crypto VASPs,Deposit money banks,designated settlement accounts,crypto,https://www.reuters.com/world/africa/nigerian-central-bank-lifts-ban-crypto-trading-2023-12-23/ ; https://www.mondaq.com/nigeria/fin-tech/1414818/the-regime-for-the-operation-of-bank-accounts-by-virtual-asset-service-providersexchanges-in-nigeria
+Savings and wealth apps,Deposit money banks,customer funds held and invested,savings,https://techpoint.africa/news/piggyvest-2025-payouts/
+NAICOM,Insurers and insurtech,licenses and sets capital,regulation,https://naicom.gov.ng/wp-content/uploads/2025/08/NIIRA-2025.pdf
+NDPC,Wallets and digital MFBs,data protection enforcement,regulation,https://assets.kpmg.com/content/dam/kpmgsites/ng/pdf/nigeria-data-protection-act2023.pdf.coredownload.pdf
+Merchants and real economy,Lenders and BNPL,borrow working capital,credit,https://techpoint.africa/news/moniepoint-2025-report/
+Switches and processors,FIRS,e-invoicing access point,government,https://interswitchgroup.com/news/interswitch-named-firs-access-point-provider-for-mandatory-e-invoicing/
+Ride-hailing platforms,Mobility finance,driver earnings fund vehicle repayments,real economy,https://punchng.com/moove-exits-nigeria-transfers-n35bn-vehicles-to-customers/ ; https://www.bbc.com/news/articles/c86xpv8l9y9o
+Wallets and digital MFBs,PAYG solar,mobile money repayments,real economy,https://www.ifc.org/en/pressroom/2025/sun-king-ifc-and-stanbic-ibtc-bank-close-80-million-debt-facility-to-expand-solar-
