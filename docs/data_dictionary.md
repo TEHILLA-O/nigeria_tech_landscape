@@ -71,7 +71,7 @@ Last verified: **2026-09-25**.
 | Hiring_Signal | text | Yes / No / Unknown |
 | Logo_URL | URL | Official logo or brand-kit URL only; see docs/assets/README.md |
 
-| Possibly_stale | text | Yes / No / Unknown — Last_Signal_Date older than 18 months before 2026-09-25 (see methodology) |
+| Possibly_stale | text | Yes / No / Unknown, Last_Signal_Date older than 18 months before 2026-09-25 (see methodology) |
 | Topics | text | Semicolon tags (cross-border, agent-network, credit-scoring, HR, energy-PAYG, etc.) |
 
 ## Directory (`data/directory.csv`)

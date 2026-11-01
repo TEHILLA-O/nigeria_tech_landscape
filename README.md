@@ -151,14 +151,29 @@ Full detail: [`docs/methodology.md`](docs/methodology.md).
 | [Deep dive](docs/deep_dive/value_chain.md) | Value chain, players, regulation, money flows, losses (see section above) |
 | [Sources](sources.md) | Bibliography |
 | [Contributing](CONTRIBUTING.md) | How to add a company honestly |
+| [Failures](FAILURES.md) | What went wrong while building this and what changed |
 
 ## Rebuild
+
+You do not need to rebuild anything to use the data; the CSV, JSON, SQLite and Excel files are committed. Rebuild only if you change `data/ranked_enrichment.json` or the raw sources, and do it on a copy or a branch first.
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install openpyxl pandas
 # optional: refresh raw_sources from CBN/FCCPC/etc.
 .venv/bin/python scripts/enrich_and_rebuild.py
+.venv/bin/python scripts/facelift_pass.py     # needed: restores the expanded funding rounds and investors
 ```
+
+What a rebuild does today (checked on 1 November 2026 in a scratch copy):
+
+| Step | Result |
+| --- | --- |
+| `enrich_and_rebuild.py` alone | runs, but leaves 38 funding rounds and 100 investors instead of the committed 129 and 119 |
+| then `facelift_pass.py` | back to 101 ranked, 977 directory, 129 rounds, 119 investors |
+| `facelift_backlog_3_10.py` | fails with `NameError: name 'write_funding_caveats' is not defined` |
+| Net difference from the committed data | 40 founder LinkedIn cells, 32 `Possibly_stale` flags and 14 `Licence_Status` cells differ, because the backlog script that set them no longer runs |
+
+So the committed files are the reference copy. A full rebuild does not reproduce them exactly yet.
 
 Deep dive files: `python3 scripts/build_deep_dive_refs.py` (citations and SOURCES.md), `python3 scripts/build_deep_dive_data.py` (CSVs), `python3 scripts/build_value_chain_page.py` (graph page).
 
@@ -171,6 +186,20 @@ See [`scripts/README.md`](scripts/README.md).
 - Founder / employee / licence fields are sparse where public sources disagree or are silent. Blank means unknown, not zero.
 - Licence tags are research aids, not a substitute for counsel or the live CBN/FCCPC register.
 - Directory Ease scores for licence rows are **heuristics** (`Heuristic=Yes`), not company-specific diligence.
+
+## Checks
+
+| Check | Result |
+| --- | --- |
+| Row counts in the coverage table against the committed CSVs | match (101, 977, 50, 129, 119) |
+| `scripts/export_sqlite.py` | runs and writes the SQLite file |
+| Rebuild scripts | see the table under Rebuild |
+| Links in this README | resolve |
+| Automated tests and CI | none |
+
+## Status
+
+Maintained as an open research dataset. Figures were last verified on the dates shown above (2026-09-26 for the main sheets, 2026-10-19 for the deep dive). Company facts go stale; check `Possibly_stale` and the source links before relying on a row.
 
 ## Cite this dataset
 
@@ -194,3 +223,5 @@ Not investment advice. Not legal advice. Licence capital figures and registers c
 ## Paid vendor imports
 
 Crunchbase/Tracxn merge is **BLOCKED** without a licensed paid export. See `data/imports/README.md` and empty schema CSVs. Do not scrape paywalls.
+
+More of my work: https://cv.omnitest.dev/
